@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g transform="translate(10, 10) scale(0.8)">
+    <!-- Orange left part representing the 'Shri' shape abstractly -->
+    <path d="M 20 80 Q 50 80, 50 50 Q 50 20, 35 20 Q 20 20, 20 35 Q 20 50, 40 50 L 70 80" fill="none" stroke="#ff5722" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Black vertical part -->
+    <rect x="70" y="30" width="15" height="70" fill="#000000" rx="3" />
+    
+    <!-- Orange flame part -->
+    <path d="M 77 5 C 95 15, 95 35, 77 35 C 60 35, 60 15, 77 5 Z" fill="#ff5722" />
+  </g>
+</svg>

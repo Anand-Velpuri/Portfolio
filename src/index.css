@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 93%;
+    --accent: 221 83% 53%; /* Electric Blue: #3b82f6 */
+    --accent-glow: 221 83% 53%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 63%;
+    --card: 0 0% 6%;
+    --border: 0 0% 12%;
+  }
+
+  * {
+    @apply border-[hsl(var(--border))];
+    cursor: none; /* We will use a custom cursor */
+  }
+
+  body {
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))] antialiased selection:bg-[hsl(var(--accent))] selection:text-white;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar - although Lenis handles scroll, we still want to style the bar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Font imports */
+
+@layer utilities {
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+  .font-heading {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .text-glow {
+    text-shadow: 0 0 20px hsla(var(--accent-glow), 0.5);
+  }
+}
