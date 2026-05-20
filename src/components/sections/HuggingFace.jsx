@@ -4,21 +4,24 @@ export default function HuggingFace() {
   const hfItems = [
     {
       type: "Model",
-      title: "Price Predictor (LLaMA 3.2 3B)",
-      description: "Fine-tuned with QLoRA & 4-bit quantization for highly optimized e-commerce predictions.",
-      stats: "GGUF • Safetensors"
+      title: "Food Not Food Classifier",
+      description: "Fine-tuned DistilBERT model for binary text classification of food items.",
+      stats: "Transformers • PyTorch",
+      link: "https://huggingface.co/AnandVelpuri/food_not_food_text_classifier-distilbert-base-uncased"
     },
     {
       type: "Space",
-      title: "Zenith Agentic Hub",
-      description: "Live deployment of the LangGraph multi-agent architecture with long-term memory.",
-      stats: "Docker • Gradio / FastAPI"
+      title: "Food Not Food Demo",
+      description: "Interactive Gradio interface for real-time text evaluation.",
+      stats: "Gradio • Spaces",
+      link: "https://anandvelpuri-food-not-food-text-classifier-demo.hf.space"
     },
     {
       type: "Dataset",
-      title: "Custom RLHF / Fine-tuning Data",
-      description: "Curated dataset pipeline specifically built to align Zenith's conversational agents.",
-      stats: "Parquet • 10k+ rows"
+      title: "items_raw_full",
+      description: "Curated dataset pipeline for text classification training.",
+      stats: "CSV • Text",
+      link: "https://huggingface.co/datasets/AnandVelpuri/items_raw_full"
     }
   ];
 
@@ -64,13 +67,16 @@ export default function HuggingFace() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {hfItems.map((item, idx) => (
-            <motion.div
+            <motion.a
+              href={item.link || "#"}
+              target="_blank"
+              rel="noreferrer"
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-8 rounded-2xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 hover:border-[#FFD21E]/30 transition-colors group relative overflow-hidden"
+              className="p-8 rounded-2xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 hover:border-[#FFD21E]/30 transition-colors group relative overflow-hidden block cursor-pointer"
             >
               <div className="absolute inset-0 bg-[#FFD21E]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative z-10">
@@ -88,7 +94,7 @@ export default function HuggingFace() {
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

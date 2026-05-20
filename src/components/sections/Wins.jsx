@@ -1,5 +1,175 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
+
+function SynapStoreMedia() {
+  const [view, setView] = useState('demo'); // 'demo' | 'moments'
+  const [photoIndex, setPhotoIndex] = useState(0);
+  
+  const videoUrl = "https://res.cloudinary.com/ddrj7yzyl/video/upload/f_auto:video/SynapStore_-_Intelligent_Pharmacy_Management_System_-_3_January_2026_reqawv?_s=vp";
+  const photos = [
+    "/synapstore-win-1.jpg",
+    "/synapstore-win-2.jpg"
+  ];
+  
+  useEffect(() => {
+    let timer;
+    if (view === 'moments') {
+      timer = setInterval(() => {
+        setPhotoIndex((prev) => (prev + 1) % photos.length);
+      }, 4000); // 4 seconds per slide
+    }
+    return () => clearInterval(timer);
+  }, [view, photos.length]);
+
+  return (
+    <div className="absolute inset-0 w-full h-full bg-[#0a0a0a]">
+      {view === 'demo' ? (
+        <motion.div
+          key="demo"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <video 
+            src={videoUrl} 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover" 
+          />
+        </motion.div>
+      ) : (
+        photos.map((src, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: i === photoIndex ? 1 : 0 }}
+            transition={{ duration: 1 }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <img 
+              src={src} 
+              alt="SynapStore Hackathon Team" 
+              className="w-full h-full object-cover" 
+            />
+          </motion.div>
+        ))
+      )}
+
+      {/* Toggle Button */}
+      <button 
+        onClick={(e) => {
+          e.preventDefault();
+          setView(view === 'demo' ? 'moments' : 'demo');
+        }}
+        className="absolute bottom-6 right-6 z-20 px-4 py-2 bg-black/60 backdrop-blur-md border border-white/20 rounded-full text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 hover:bg-black/90 hover:scale-105 transition-all cursor-pointer pointer-events-auto"
+      >
+        {view === 'demo' ? (
+          <>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            View Moments
+          </>
+        ) : (
+          <>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Watch Demo
+          </>
+        )}
+      </button>
+    </div>
+  );
+}
+
+function SaberMedia() {
+  const [view, setView] = useState('demo'); // 'demo' | 'moments'
+  const [photoIndex, setPhotoIndex] = useState(0);
+  
+  const photos = [
+    "/saber-win-1.jpg",
+    "/saber-win-2.jpg",
+    "/saber-win-3.jpg"
+  ];
+  
+  useEffect(() => {
+    let timer;
+    if (view === 'moments') {
+      timer = setInterval(() => {
+        setPhotoIndex((prev) => (prev + 1) % photos.length);
+      }, 4000);
+    }
+    return () => clearInterval(timer);
+  }, [view, photos.length]);
+
+  return (
+    <div className="absolute inset-0 w-full h-full bg-[#0a0a0a]">
+      {view === 'demo' ? (
+        <motion.div
+          key="demo"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <iframe 
+            src="https://www.youtube.com/embed/YieZywufIf0?autoplay=1&mute=1&loop=1&playlist=YieZywufIf0"
+            title="SABER Demo"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full border-none"
+          ></iframe>
+        </motion.div>
+      ) : (
+        photos.map((src, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: i === photoIndex ? 1 : 0 }}
+            transition={{ duration: 1 }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <img 
+              src={src} 
+              alt="SABER Hackathon Team" 
+              className="w-full h-full object-cover" 
+            />
+          </motion.div>
+        ))
+      )}
+
+      {/* Toggle Button */}
+      <button 
+        onClick={(e) => {
+          e.preventDefault();
+          setView(view === 'demo' ? 'moments' : 'demo');
+        }}
+        className="absolute bottom-6 right-6 z-20 px-4 py-2 bg-black/60 backdrop-blur-md border border-white/20 rounded-full text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 hover:bg-black/90 hover:scale-105 transition-all cursor-pointer pointer-events-auto"
+      >
+        {view === 'demo' ? (
+          <>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            View Moments
+          </>
+        ) : (
+          <>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Watch Demo
+          </>
+        )}
+      </button>
+    </div>
+  );
+}
 
 export default function Wins() {
   const containerRef = useRef(null);
@@ -29,15 +199,9 @@ export default function Wins() {
                 transition={{ duration: 0.8 }}
                 className="aspect-[4/3] rounded-2xl bg-[#0a0a0a] border border-white/10 overflow-hidden relative group"
               >
-                {/* Video Demo */}
-                <video
-                  src="https://res.cloudinary.com/ddrj7yzyl/video/upload/f_auto:video/SynapStore_-_Intelligent_Pharmacy_Management_System_-_3_January_2026_reqawv?_s=vp"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-                />
+                <div className="absolute inset-0 w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                  <SynapStoreMedia />
+                </div>
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
                 <div className="absolute bottom-6 left-6 flex gap-2">
@@ -103,26 +267,15 @@ export default function Wins() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[#111] to-[#000] border border-white/10 overflow-hidden relative group flex items-center justify-center"
+                className="aspect-[4/3] rounded-2xl bg-[#0a0a0a] border border-white/10 overflow-hidden relative group"
               >
-                {/* Social/Swipe inspired UI */}
-                <div className="relative w-48 h-64 bg-white/5 border border-white/10 rounded-xl shadow-2xl backdrop-blur-md transform -rotate-6 group-hover:-rotate-12 transition-transform duration-500 z-10 flex flex-col p-4 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 z-10"></div>
-                  <div className="w-full aspect-square bg-white/5 rounded-lg mb-3 flex items-center justify-center blur-sm">
-                    {/* Blurred Identity */}
-                    <div className="w-16 h-16 rounded-full bg-white/10"></div>
-                  </div>
-                  <div className="w-2/3 h-3 bg-white/20 rounded mt-auto z-20"></div>
-                  <div className="w-1/2 h-2 bg-white/10 rounded mt-2 z-20"></div>
-                </div>
-                
-                <div className="absolute w-48 h-64 bg-white/5 border border-white/10 rounded-xl shadow-2xl backdrop-blur-md transform rotate-6 group-hover:translate-x-8 transition-transform duration-500 z-0">
-                  {/* Background Card */}
+                <div className="absolute inset-0 w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                  <SaberMedia />
                 </div>
 
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent pointer-events-none mix-blend-screen"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
 
-                <div className="absolute bottom-6 right-6 flex gap-2">
+                <div className="absolute bottom-6 left-6 flex gap-2 z-10 pointer-events-none">
                   <span className="px-3 py-1 rounded bg-[#FFD21E]/20 text-[#FFD21E] text-xs font-bold uppercase tracking-wider">Top 3 Finalist</span>
                 </div>
               </motion.div>

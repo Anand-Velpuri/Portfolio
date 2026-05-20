@@ -29,16 +29,19 @@ export default function Footer() {
 
         <div className="flex flex-col gap-6 w-full md:w-auto">
           <div className="flex items-center gap-4 border-b border-white/10 pb-6">
-            <a href="https://github.com/Anand-Velpuri" target="_blank" rel="noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors">
+            <a href="https://github.com/Anand-Velpuri" target="_blank" rel="noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center w-11 h-11">
               <GithubIcon className="w-5 h-5" />
             </a>
-            <a href="https://www.linkedin.com/in/anand-velpuri" target="_blank" rel="noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors">
+            <a href="https://www.linkedin.com/in/anand-velpuri" target="_blank" rel="noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center w-11 h-11">
               <LinkedinIcon className="w-5 h-5" />
             </a>
-            <a href="https://www.kaggle.com/anandvelpuri" target="_blank" rel="noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors text-sm font-bold flex items-center justify-center">
+            <a href="https://www.kaggle.com/anandvelpuri" target="_blank" rel="noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors text-sm font-bold flex items-center justify-center w-11 h-11">
               K
             </a>
-            <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors ml-auto md:ml-0 flex items-center gap-2 text-sm font-medium">
+            <a href="https://huggingface.co/AnandVelpuri" target="_blank" rel="noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors text-lg flex items-center justify-center w-11 h-11" title="Hugging Face">
+              🤗
+            </a>
+            <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors ml-auto md:ml-0 flex items-center gap-2 text-sm font-medium h-11 px-5">
               <Download className="w-4 h-4" />
               Resume
             </a>
@@ -46,9 +49,6 @@ export default function Footer() {
           
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-muted-foreground">
             <p>&copy; {currentYear} Anand Velpuri. All rights reserved.</p>
-            <p className="flex items-center gap-1">
-              Crafted with <span className="text-accent">♥</span> by an elite frontend developer.
-            </p>
           </div>
         </div>
       </div>

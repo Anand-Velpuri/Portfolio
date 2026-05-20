@@ -1,24 +1,35 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Database } from 'lucide-react';
 import { GithubIcon } from '../ui/Icons';
 
 const projects = [
   {
-    title: "Price Predictor",
-    description: "Fine-tuned LLaMA 3.2 3B model optimized for Amazon product price prediction, demonstrating low-level optimization and efficient AI engineering.",
-    highlights: ["QLoRA fine-tuning", "4-bit quantization", "Inference optimization"],
-    tech: ["LLaMA 3.2 3B", "QLoRA", "PEFT", "Transformers", "HF"],
-    github: "#",
-    demo: "#"
+    title: "Price Is Right",
+    description: "An autonomous agentic AI system built entirely from scratch (zero frameworks) that scans for underpriced products, estimates true market value using a multi-model ensemble, and pushes real-time notifications. The core is a fine-tuned Llama 3.2-3B deployed on Modal.com, achieving ~$40 mean prediction error (outperforming GPT-5.1 and Claude 4.5). The entire pipeline is orchestrated by a custom 120B planning agent via Baseten and backed by a Hybrid RAG system via ChromaDB.",
+    highlights: ["Llama 3.2-3B Fine-Tuning", "Hybrid RAG (ChromaDB)", "Custom Zero-Framework Agents"],
+    tech: ["Llama 3.2-3B", "Modal", "Baseten", "ChromaDB", "Hybrid RAG"],
+    github: "https://huggingface.co/spaces/AnandVelpuri/Price-Is-Right/tree/main",
+    demo: "https://huggingface.co/spaces/AnandVelpuri/Price-Is-Right",
+    video: "https://res.cloudinary.com/dzunpdnje/video/upload/v1779270379/ScreenFlow_xf1zjb.mp4"
   },
   {
     title: "Deep Research",
-    description: "Advanced AI experimentation and research-oriented project involving modern LLM workflows, cutting-edge retrieval, and intelligent systems.",
-    highlights: ["Research focus", "Experimental LLM workflows", "Advanced Retrieval"],
-    tech: ["Python", "Transformers", "Agentic AI"],
+    description: "An autonomous research agent built using the OpenAI Agents SDK. It combines AI reasoning with real-world web data by integrating Google Custom Search and Selenium to scrape accurate, up-to-date information on any topic, compiles actionable insights, and automatically emails the results for a truly hands-free experience.",
+    highlights: ["OpenAI Agents SDK", "Selenium Web Scraping", "Automated Email Delivery"],
+    tech: ["Python", "OpenAI Agents SDK", "Selenium", "Google Custom Search"],
     github: "https://huggingface.co/spaces/AnandVelpuri/Deep_Research/tree/main",
-    demo: "https://huggingface.co/spaces/AnandVelpuri/Deep_Research"
+    demo: "https://huggingface.co/spaces/AnandVelpuri/Deep_Research",
+    iframe: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7379889507443195905?compact=1"
+  },
+  {
+    title: "Food Not Food Text Classifier",
+    description: "A fine-tuned DistilBERT NLP model deployed via Hugging Face Spaces to accurately classify text descriptions as either 'food' or 'not food'. Built with an interactive Gradio interface for real-time text evaluation and trained on a custom curated dataset.",
+    highlights: ["DistilBERT Fine-Tuning", "Hugging Face Spaces", "Custom Dataset"],
+    tech: ["DistilBERT", "Gradio", "Hugging Face", "Python"],
+    modelLink: "https://huggingface.co/AnandVelpuri/food_not_food_text_classifier-distilbert-base-uncased",
+    datasetLink: "https://huggingface.co/datasets/AnandVelpuri/items_raw_full",
+    iframe: "https://anandvelpuri-food-not-food-text-classifier-demo.hf.space"
   }
 ];
 
@@ -40,13 +51,34 @@ function ProjectCard({ project, index }) {
     >
       <div className={`lg:col-span-7 relative z-10 ${index % 2 !== 0 ? 'lg:order-last' : ''}`}>
         <motion.div style={{ y }} className="relative aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10 group-hover:border-accent/30 transition-colors duration-500">
-          <div className="absolute inset-0 bg-gradient-to-tr from-card to-transparent z-10 mix-blend-multiply opacity-50"></div>
-          {/* Abstract Placeholder for Project Image */}
-          <div className="absolute inset-0 flex items-center justify-center text-white/5 font-heading text-6xl font-bold uppercase tracking-tighter mix-blend-overlay">
-            {project.title.split(' ')[0]}
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-card to-transparent z-10 mix-blend-multiply opacity-50 pointer-events-none"></div>
           
-          <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          {project.video ? (
+            <video 
+              src={project.video} 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : project.iframe ? (
+            <div className="absolute inset-0 w-full h-full bg-white flex items-center justify-center">
+              <iframe 
+                src={project.iframe}
+                frameBorder="0"
+                allowFullScreen=""
+                title={`${project.title} Embedded Post`}
+                className="w-full h-full border-none"
+              ></iframe>
+            </div>
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center text-white/5 font-heading text-6xl font-bold uppercase tracking-tighter mix-blend-overlay">
+              {project.title.split(' ')[0]}
+            </div>
+          )}
+          
+          <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
         </motion.div>
       </div>
 
@@ -80,12 +112,26 @@ function ProjectCard({ project, index }) {
           </ul>
 
           <div className="flex items-center gap-4 mt-4">
-            <a href={project.github} className="p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors interactive">
-              <GithubIcon className="w-5 h-5" />
-            </a>
-            <a href={project.demo} className="p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors interactive">
-              <ExternalLink className="w-5 h-5" />
-            </a>
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noreferrer" className="p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors interactive flex items-center justify-center w-11 h-11" title="GitHub / Source">
+                <GithubIcon className="w-5 h-5" />
+              </a>
+            )}
+            {project.modelLink && (
+              <a href={project.modelLink} target="_blank" rel="noreferrer" className="p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors interactive text-lg leading-none flex items-center justify-center w-11 h-11" title="Hugging Face Model">
+                🤗
+              </a>
+            )}
+            {project.datasetLink && (
+              <a href={project.datasetLink} target="_blank" rel="noreferrer" className="p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors interactive flex items-center justify-center w-11 h-11" title="Dataset">
+                <Database className="w-5 h-5" />
+              </a>
+            )}
+            {project.demo && (
+              <a href={project.demo} target="_blank" rel="noreferrer" className="p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors interactive flex items-center justify-center w-11 h-11" title="Live Demo">
+                <ExternalLink className="w-5 h-5" />
+              </a>
+            )}
           </div>
         </div>
       </div>
