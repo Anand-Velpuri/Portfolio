@@ -1,7 +1,15 @@
 import { motion } from 'framer-motion';
-import { SiPytorch, SiFastapi, SiPostgresql, SiSqlalchemy, SiJsonwebtokens, SiHuggingface, SiCplusplus, SiTensorflow, SiMlflow, SiOpenai } from 'react-icons/si';
+import { SiPytorch, SiFastapi, SiPostgresql, SiSqlalchemy, SiJsonwebtokens, SiHuggingface, SiCplusplus, SiTensorflow, SiMlflow, SiOpenai, SiGit, SiGithub } from 'react-icons/si';
 import { FaRobot, FaBrain, FaNetworkWired, FaTools, FaDatabase, FaServer, FaCloud, FaEye, FaChartLine, FaProjectDiagram, FaLink } from 'react-icons/fa';
 import { BsCpu, BsBoxSeam, BsGear } from 'react-icons/bs';
+
+const DvcIcon = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" style={{ opacity: 1 }} {...props}>
+    <path fill="#13adc7" d="M2 20.4V8.452a.27.27 0 0 1 .238-.3a.3.3 0 0 1 .078 0h4.676a6.64 6.64 0 0 1 4.751 1.877a6.03 6.03 0 0 1 .1 8.848l-.1.091a6.7 6.7 0 0 1-4.751 1.879H2.319a.3.3 0 0 1-.237-.076c0-.151-.082-.226-.082-.371m3.009-2.328h1.825a3.56 3.56 0 0 0 2.613-1.052a3.47 3.47 0 0 0 1.026-2.629a3.546 3.546 0 0 0-3.507-3.6H5.012Z"/>
+    <path fill="#945dd6" d="M15.627 23.775L9.685 11.607c-.08-.15-.08-.225 0-.3a.42.42 0 0 1 .316-.15h2.534c.159 0 .238.075.318.226l3.167 6.609h.08l3.167-6.609c.08-.151.158-.226.317-.226h2.534a.42.42 0 0 1 .316.15a.22.22 0 0 1 0 .3L16.5 23.775c-.079.15-.158.225-.317.225h-.163c-.237-.075-.393-.15-.393-.225"/>
+    <path fill="#f46737" d="M20.376 19.043a6.02 6.02 0 0 1-1.98-4.582a6.02 6.02 0 0 1 1.98-4.582A6.7 6.7 0 0 1 25.207 8A6.74 6.74 0 0 1 29.8 9.654c.158.151.158.3 0 .526l-1.506 1.427a.307.307 0 0 1-.415.056a.3.3 0 0 1-.059-.056a3.85 3.85 0 0 0-2.534-.9a3.63 3.63 0 0 0-2.693 1.126a3.58 3.58 0 0 0-1.027 2.629a3.5 3.5 0 0 0 1.109 2.554a3.46 3.46 0 0 0 2.692 1.052a3.86 3.86 0 0 0 2.535-.9a.31.31 0 0 1 .417-.055a.3.3 0 0 1 .058.055l1.505 1.5a.274.274 0 0 1 .058.4a.3.3 0 0 1-.058.055a6.33 6.33 0 0 1-4.594 1.727a6.52 6.52 0 0 1-4.912-1.807"/>
+  </svg>
+);
 
 export default function Skills() {
   const skillCategories = [
@@ -15,7 +23,7 @@ export default function Skills() {
     },
     {
       title: "Backend & Infra",
-      skills: ["FastAPI", "PostgreSQL", "MySQL", "SQLAlchemy", "JWT / AES", "Modal.com", "Docker", "Vercel", "HF Spaces"]
+      skills: ["FastAPI", "PostgreSQL", "MySQL", "SQLAlchemy", "JWT / AES", "Modal.com", "Docker", "Vercel", "HF Spaces", "Git", "GitHub", "DVC", "DagsHub"]
     },
     {
       title: "AI Systems",
@@ -51,6 +59,10 @@ export default function Skills() {
     "Docker": { url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
     "Vercel": { url: "/icons/vercel.svg" },
     "HF Spaces": { url: "/icons/huggingface.svg" },
+    "Git": { icon: SiGit, color: "#F1502F" },
+    "GitHub": { icon: SiGithub, color: "#FFFFFF" },
+    "DVC": { icon: DvcIcon },
+    "DagsHub": { url: "/icons/dagshub.png", imgClass: "scale-[1.7]" },
     "RAG Pipelines": { icon: FaProjectDiagram, color: "#FCD34D" },
     "Vector DBs": { icon: FaDatabase, color: "#6EE7B7" },
     "Chroma": { url: "/icons/chroma.svg" },
@@ -122,7 +134,7 @@ export default function Skills() {
                         className="group/skill relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 transition-all duration-300 cursor-default interactive"
                       >
                         {skillData.url ? (
-                          <img src={skillData.url} alt={skill} className="w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover/skill:scale-110 group-hover:scale-110 object-contain drop-shadow-md" />
+                          <img src={skillData.url} alt={skill} className={`w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover/skill:scale-[1.2] object-contain drop-shadow-md ${skillData.imgClass || ""}`} />
                         ) : (
                           skillData.icon && <skillData.icon className="w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover/skill:scale-110 group-hover:scale-110 drop-shadow-md" style={{ color: skillData.color }} />
                         )}
