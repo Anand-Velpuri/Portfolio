@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { SiPytorch, SiFastapi, SiPostgresql, SiSqlalchemy, SiJsonwebtokens, SiHuggingface, SiCplusplus, SiTensorflow, SiMlflow, SiOpenai, SiGit, SiGithub } from 'react-icons/si';
-import { FaRobot, FaBrain, FaNetworkWired, FaTools, FaDatabase, FaServer, FaCloud, FaEye, FaChartLine, FaProjectDiagram, FaLink } from 'react-icons/fa';
+import { FaRobot, FaBrain, FaNetworkWired, FaTools, FaDatabase, FaServer, FaCloud, FaEye, FaChartLine, FaProjectDiagram, FaLink, FaAws } from 'react-icons/fa';
 import { BsCpu, BsBoxSeam, BsGear } from 'react-icons/bs';
 
 const DvcIcon = (props) => (
@@ -23,7 +23,7 @@ export default function Skills() {
     },
     {
       title: "Backend & Infra",
-      skills: ["FastAPI", "PostgreSQL", "MySQL", "SQLAlchemy", "JWT / AES", "Modal.com", "Docker", "Vercel", "HF Spaces", "Git", "GitHub", "DVC", "DagsHub"]
+      skills: ["FastAPI", "PostgreSQL", "MySQL", "SQLAlchemy", "JWT / AES", "AWS", "Modal.com", "Docker", "Vercel", "HF Spaces", "Git", "GitHub", "DVC", "DagsHub"]
     },
     {
       title: "AI Systems",
@@ -55,6 +55,7 @@ export default function Skills() {
     "MySQL": { url: "/icons/mysql.svg" },
     "SQLAlchemy": { icon: SiSqlalchemy, color: "#D71F00" },
     "JWT / AES": { icon: SiJsonwebtokens, color: "#F43F5E" },
+    "AWS": { icon: FaAws, color: "#FF9900" },
     "Modal.com": { icon: FaCloud, color: "#FFFFFF" },
     "Docker": { url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
     "Vercel": { url: "/icons/vercel.svg" },
