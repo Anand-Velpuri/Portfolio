@@ -3,6 +3,20 @@ import { SiPytorch, SiFastapi, SiPostgresql, SiSqlalchemy, SiJsonwebtokens, SiHu
 import { FaRobot, FaBrain, FaNetworkWired, FaTools, FaDatabase, FaServer, FaCloud, FaEye, FaChartLine, FaProjectDiagram, FaLink, FaAws } from 'react-icons/fa';
 import { BsCpu, BsBoxSeam, BsGear } from 'react-icons/bs';
 
+const AirflowIcon = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" {...props}>
+    <path fill="#017cee" d="m2.544 127 60.81-62.332a1.124 1.124 0 0 0 .135-1.437c-3.698-5.162-10.521-6.058-13.05-9.527-7.49-10.275-9.39-16.092-12.61-15.73a1 1 0 0 0-.585.308L15.278 60.8C2.64 73.744.824 102.275.496 126.167a1.19 1.19 0 0 0 2.048.833"/>
+    <path fill="#00ad46" d="M126.99 125.46 64.658 64.647a1.124 1.124 0 0 0-1.439-.136c-5.162 3.7-6.058 10.521-9.527 13.05-10.275 7.49-16.092 9.391-15.73 12.61a1 1 0 0 0 .308.583l22.518 21.966c12.944 12.638 41.475 14.454 65.367 14.782a1.19 1.19 0 0 0 .835-2.041z"/>
+    <path fill="#04d659" d="M60.792 112.72c-7.076-6.903-10.355-20.559 3.206-48.719-22.046 9.853-29.771 22.803-25.972 26.511z"/>
+    <path fill="#00c7d4" d="M125.45 1.011 64.643 63.343a1.12 1.12 0 0 0-.136 1.437c3.7 5.163 10.52 6.058 13.05 9.527 7.49 10.275 9.393 16.092 12.61 15.73a.98.98 0 0 0 .585-.308l21.966-22.518c12.638-12.944 14.454-41.475 14.782-65.367a1.193 1.193 0 0 0-2.05-.832z"/>
+    <path fill="#11e1ee" d="M112.73 67.211c-6.903 7.076-20.559 10.355-48.721-3.206 9.853 22.046 22.803 29.771 26.511 25.972z"/>
+    <path fill="#e43921" d="m1.002 2.55 62.332 60.807a1.124 1.124 0 0 0 1.436.135c5.163-3.7 6.058-10.52 9.527-13.05 10.275-7.49 16.092-9.39 15.731-12.61a1 1 0 0 0-.308-.584L67.202 15.282C54.258 2.644 25.727.828 1.835.5a1.19 1.19 0 0 0-.833 2.05"/>
+    <path fill="#ff7557" d="M67.212 15.284c7.076 6.904 10.355 20.559-3.206 48.721C86.052 54.153 93.777 41.2 89.978 37.494z"/>
+    <path fill="#0cb6ff" d="M15.279 60.8C22.183 53.724 35.838 50.445 64 64.006 54.148 41.96 41.197 34.235 37.489 38.034z"/>
+    <circle cx="64.009" cy="63.995" r="2.718" fill="#4a4848"/>
+  </svg>
+);
+
 const DvcIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" style={{ opacity: 1 }} {...props}>
     <path fill="#13adc7" d="M2 20.4V8.452a.27.27 0 0 1 .238-.3a.3.3 0 0 1 .078 0h4.676a6.64 6.64 0 0 1 4.751 1.877a6.03 6.03 0 0 1 .1 8.848l-.1.091a6.7 6.7 0 0 1-4.751 1.879H2.319a.3.3 0 0 1-.237-.076c0-.151-.082-.226-.082-.371m3.009-2.328h1.825a3.56 3.56 0 0 0 2.613-1.052a3.47 3.47 0 0 0 1.026-2.629a3.546 3.546 0 0 0-3.507-3.6H5.012Z"/>
@@ -23,7 +37,7 @@ export default function Skills() {
     },
     {
       title: "Backend & Infra",
-      skills: ["FastAPI", "PostgreSQL", "MySQL", "SQLAlchemy", "JWT / AES", "AWS", "Modal.com", "Docker", "Vercel", "HF Spaces", "Git", "GitHub", "DVC", "DagsHub"]
+      skills: ["FastAPI", "PostgreSQL", "MySQL", "SQLAlchemy", "JWT / AES", "AWS", "Modal.com", "Docker", "Vercel", "HF Spaces", "Git", "GitHub", "DVC", "DagsHub", "Apache Airflow"]
     },
     {
       title: "AI Systems",
@@ -58,6 +72,7 @@ export default function Skills() {
     "AWS": { icon: FaAws, color: "#FF9900" },
     "Modal.com": { icon: FaCloud, color: "#FFFFFF" },
     "Docker": { url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+    "Apache Airflow": { icon: AirflowIcon, iconClass: "group-hover/skill:animate-[spin_2s_linear_infinite]" },
     "Vercel": { url: "/icons/vercel.svg" },
     "HF Spaces": { url: "/icons/huggingface.svg" },
     "Git": { icon: SiGit, color: "#F1502F" },
@@ -135,9 +150,9 @@ export default function Skills() {
                         className="group/skill relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 transition-all duration-300 cursor-default interactive"
                       >
                         {skillData.url ? (
-                          <img src={skillData.url} alt={skill} className={`w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover/skill:scale-[1.2] object-contain drop-shadow-md ${skillData.imgClass || ""}`} />
+                          <img src={skillData.url} alt={skill} className={`w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover/skill:scale-[1.2] object-contain ${skillData.imgClass || ""}`} />
                         ) : (
-                          skillData.icon && <skillData.icon className="w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover/skill:scale-110 group-hover:scale-110 drop-shadow-md" style={{ color: skillData.color }} />
+                          skillData.icon && <skillData.icon className={`w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover/skill:scale-110 ${skillData.iconClass || ""}`} style={{ color: skillData.color }} />
                         )}
                       </div>
                       {/* Label */}
@@ -152,9 +167,6 @@ export default function Skills() {
           ))}
         </motion.div>
       </div>
-      
-      {/* Abstract Background */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-2/3 bg-gradient-to-l from-white/[0.02] to-transparent pointer-events-none blur-3xl"></div>
     </section>
   );
 }
