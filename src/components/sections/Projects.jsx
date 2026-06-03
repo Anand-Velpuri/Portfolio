@@ -1,9 +1,19 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ExternalLink, Database } from 'lucide-react';
+import { ExternalLink, Database, FlaskConical } from 'lucide-react';
 import { GithubIcon } from '../ui/Icons';
 
 const projects = [
+  {
+    title: "Network Security",
+    description: "A production-grade ML system that detects phishing websites by extracting 30 security features from URLs and classifying them using ensemble models. Implements a complete MLOps lifecycle — from data ingestion and experiment tracking to containerized deployment on AWS with CI/CD automation. Features a 4-stage ML pipeline with Kolmogorov-Smirnov drift detection, GridSearchCV model selection across 5 classifiers, and a FastAPI app with real-time URL scanning.",
+    highlights: ["30-Feature URL Extraction", "End-to-End MLOps Pipeline", "AWS CI/CD Deployment"],
+    tech: ["Scikit-Learn", "FastAPI", "MLflow", "Docker", "AWS"],
+    github: "https://github.com/Anand-Velpuri/NetworkSecurity",
+    demo: "https://netsec.anandvelpuri.me",
+    mlflowLink: "https://dagshub.com/anandvelpuri/NetworkSecurity.mlflow/",
+    image: "/netsec-preview.png"
+  },
   {
     title: "Price Is Right",
     description: "An autonomous agentic AI system built entirely from scratch (zero frameworks) that scans for underpriced products, estimates true market value using a multi-model ensemble, and pushes real-time notifications. The core is a fine-tuned Llama 3.2-3B deployed on Modal.com, achieving ~$40 mean prediction error (outperforming GPT-5.1 and Claude 4.5). The entire pipeline is orchestrated by a custom 120B planning agent via Baseten and backed by a Hybrid RAG system via ChromaDB.",
@@ -62,6 +72,13 @@ function ProjectCard({ project, index }) {
               playsInline 
               className="absolute inset-0 w-full h-full object-cover"
             />
+          ) : project.image ? (
+            <img 
+              src={project.image} 
+              alt={`${project.title} Preview`}
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
           ) : project.iframe ? (
             <div className="absolute inset-0 w-full h-full bg-white flex items-center justify-center">
               <iframe 
@@ -115,6 +132,11 @@ function ProjectCard({ project, index }) {
             {project.github && (
               <a href={project.github} target="_blank" rel="noreferrer" className="p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors interactive flex items-center justify-center w-11 h-11" title="GitHub / Source">
                 <GithubIcon className="w-5 h-5" />
+              </a>
+            )}
+            {project.mlflowLink && (
+              <a href={project.mlflowLink} target="_blank" rel="noreferrer" className="p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors interactive flex items-center justify-center w-11 h-11" title="MLflow Experiments">
+                <FlaskConical className="w-5 h-5" />
               </a>
             )}
             {project.modelLink && (
