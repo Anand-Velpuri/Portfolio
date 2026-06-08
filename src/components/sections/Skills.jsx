@@ -31,6 +31,8 @@ const FlaskIcon = (props) => (
   </svg>
 );
 
+
+
 export default function Skills() {
   const skillCategories = [
     {
@@ -43,7 +45,7 @@ export default function Skills() {
     },
     {
       title: "Backend & Infra",
-      skills: ["FastAPI", "Flask", "PostgreSQL", "MongoDB", "MySQL", "SQLAlchemy", "JWT / AES", "AWS", "Modal.com", "Docker", "Vercel", "HF Spaces", "Git", "GitHub", "DVC", "DagsHub", "Apache Airflow"]
+      skills: ["FastAPI", "Flask", "PostgreSQL", "MongoDB", "MySQL", "SQLAlchemy", "JWT / AES", "AWS", "Modal.com", "Docker", "Vercel", "HF Spaces", "Git", "GitHub", "DVC", "DagsHub", "Apache Airflow", "Jenkins"]
     },
     {
       title: "AI Systems",
@@ -81,6 +83,7 @@ export default function Skills() {
     "Modal.com": { icon: FaCloud, color: "#FFFFFF" },
     "Docker": { url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
     "Apache Airflow": { icon: AirflowIcon, iconClass: "group-hover/skill:animate-[spin_2s_linear_infinite]" },
+    "Jenkins": { url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg" },
     "Vercel": { url: "/icons/vercel.svg" },
     "HF Spaces": { url: "/icons/huggingface.svg" },
     "Git": { icon: SiGit, color: "#F1502F" },

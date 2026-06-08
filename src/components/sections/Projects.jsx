@@ -5,6 +5,14 @@ import { GithubIcon } from '../ui/Icons';
 
 const projects = [
   {
+    title: "Medical RAG Chatbot",
+    description: "A production-ready Retrieval-Augmented Generation system that answers medical queries by grounding LLM responses in the Gale Encyclopedia of Medicine. Combines FAISS semantic search with a LangChain retrieval pipeline and Meta Llama 3 (8B Instruct) via Hugging Face, served through a Flask chat interface. Fully containerized and deployed on AWS EC2 via an automated Jenkins CI/CD pipeline that builds, Trivy-scans, and pushes to Amazon ECR on every commit.",
+    highlights: ["RAG + FAISS Semantic Search", "Jenkins CI/CD → AWS EC2", "Trivy Security Scanning"],
+    tech: ["LangChain", "Flask", "FAISS", "Docker", "Jenkins", "AWS"],
+    github: "https://github.com/Anand-Velpuri/Medical-RAG-Chatbot",
+    video: "https://res.cloudinary.com/dzunpdnje/video/upload/v1780950190/Screen_Recording_2026-06-09_at_12.56.42_AM_no8rby.mp4"
+  },
+  {
     title: "Network Security",
     description: "A production-grade ML system that detects phishing websites by extracting 30 security features from URLs and classifying them using ensemble models. Implements a complete MLOps lifecycle — from data ingestion and experiment tracking to containerized deployment on AWS with CI/CD automation. Features a 4-stage ML pipeline with Kolmogorov-Smirnov drift detection, GridSearchCV model selection across 5 classifiers, and a FastAPI app with real-time URL scanning.",
     highlights: ["30-Feature URL Extraction", "End-to-End MLOps Pipeline", "AWS CI/CD Deployment"],
@@ -70,7 +78,7 @@ function ProjectCard({ project, index }) {
               loop 
               muted 
               playsInline 
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-contain bg-black"
             />
           ) : project.image ? (
             <img 
