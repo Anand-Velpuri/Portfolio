@@ -5,12 +5,28 @@ import { GithubIcon } from '../ui/Icons';
 
 const projects = [
   {
+    title: "AI Anime Recommender",
+    description: "A production-grade AI-powered anime recommendation system built with a full LLMOps pipeline. Uses HuggingFace Embeddings (all-MiniLM-L6-v2) and ChromaDB for semantic vector search, LangChain RetrievalQA with custom prompt templates, and Groq API (Llama 3.1-8B-Instant) for lightning-fast inference. Containerized with Docker, deployed on GCP via Kubernetes (k8s), with GitHub CI/CD integration and Grafana Cloud for real-time monitoring and observability.",
+    highlights: ["Kubernetes on GCP", "Grafana Cloud Monitoring", "ChromaDB Vector Search"],
+    tech: ["LangChain", "Groq", "ChromaDB", "Kubernetes", "GCP", "Grafana"],
+    github: "https://github.com/Anand-Velpuri/AI-Anime-Recommender",
+    video: "https://res.cloudinary.com/dzunpdnje/video/upload/Screen_Recording_2026-06-17_at_2.46.14_PM_rcbazw.mp4"
+  },
+  {
     title: "Medical RAG Chatbot",
     description: "A production-ready Retrieval-Augmented Generation system that answers medical queries by grounding LLM responses in the Gale Encyclopedia of Medicine. Combines FAISS semantic search with a LangChain retrieval pipeline and Meta Llama 3 (8B Instruct) via Hugging Face, served through a Flask chat interface. Fully containerized and deployed on AWS EC2 via an automated Jenkins CI/CD pipeline that builds, Trivy-scans, and pushes to Amazon ECR on every commit.",
     highlights: ["RAG + FAISS Semantic Search", "Jenkins CI/CD → AWS EC2", "Trivy Security Scanning"],
     tech: ["LangChain", "Flask", "FAISS", "Docker", "Jenkins", "AWS"],
     github: "https://github.com/Anand-Velpuri/Medical-RAG-Chatbot",
     video: "https://res.cloudinary.com/dzunpdnje/video/upload/v1780950190/Screen_Recording_2026-06-09_at_12.56.42_AM_no8rby.mp4"
+  },
+  {
+    title: "Multi-AI Agent Platform",
+    description: "A production-grade multi-agent AI platform powered by LangGraph, LangChain, Groq, FastAPI, and Streamlit, with a complete CI/CD pipeline running through Jenkins, SonarQube, Docker, AWS ECR, and ECS Fargate. Orchestrates AI workflows using LangGraph with real-time response streaming via Server-Sent Events (SSE), multi-LLM interactions, Tavily web search integration, and thread-based conversation management with checkpointing.",
+    highlights: ["Real-Time SSE Streaming", "Jenkins → AWS ECS Fargate CI/CD", "SonarQube Code Quality"],
+    tech: ["LangGraph", "LangChain", "FastAPI", "Docker", "Jenkins", "AWS"],
+    github: "https://github.com/Anand-Velpuri/Multi-AI-Agent",
+    video: "https://res.cloudinary.com/dzunpdnje/video/upload/Multi-Ai_Agent_ghnwgc.mp4"
   },
   {
     title: "Network Security",
