@@ -13,6 +13,14 @@ const projects = [
     video: "https://res.cloudinary.com/dzunpdnje/video/upload/Screen_Recording_2026-06-17_at_2.46.14_PM_rcbazw.mp4"
   },
   {
+    title: "Flipkart AI Product Recommender",
+    description: "A production-grade conversational recommendation engine that leverages Retrieval-Augmented Generation (RAG) to deliver intelligent, context-aware product suggestions powered by 450+ real Flipkart product reviews. Features a history-aware retriever for multi-turn conversations, AstraDB vector store with BGE-Base-EN-v1.5 embeddings, Groq-powered Llama 3.1 8B for sub-second inference, built-in Prometheus metrics, and a Flipkart-inspired chat UI. Fully containerized and orchestrated on GCP via Kubernetes with Grafana observability.",
+    highlights: ["AstraDB Vector Store + BGE Embeddings", "Prometheus & Grafana Observability", "Kubernetes on GCP"],
+    tech: ["LangChain", "Groq", "AstraDB", "Kubernetes", "GCP", "Prometheus"],
+    github: "https://github.com/Anand-Velpuri/Flipkart-Product-Recommender",
+    video: "https://res.cloudinary.com/dzunpdnje/video/upload/v1782155445/flipkart_product_recommender_a18hpf.mp4"
+  },
+  {
     title: "Medical RAG Chatbot",
     description: "A production-ready Retrieval-Augmented Generation system that answers medical queries by grounding LLM responses in the Gale Encyclopedia of Medicine. Combines FAISS semantic search with a LangChain retrieval pipeline and Meta Llama 3 (8B Instruct) via Hugging Face, served through a Flask chat interface. Fully containerized and deployed on AWS EC2 via an automated Jenkins CI/CD pipeline that builds, Trivy-scans, and pushes to Amazon ECR on every commit.",
     highlights: ["RAG + FAISS Semantic Search", "Jenkins CI/CD → AWS EC2", "Trivy Security Scanning"],
