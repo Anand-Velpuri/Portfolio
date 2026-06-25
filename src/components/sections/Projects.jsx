@@ -5,6 +5,22 @@ import { GithubIcon } from '../ui/Icons';
 
 const projects = [
   {
+    title: "Study Buddy AI",
+    description: "An AI-powered quiz generation platform that creates interactive quizzes on any topic using Groq's Llama 3.1 8B. Generates all questions in a single LLM call using Pydantic-validated schemas as guardrails against hallucinations, supporting Multiple Choice and Fill in the Blank formats with configurable difficulty. Features instant evaluation, scoring, and CSV export. Deployed through a full GitOps CI/CD pipeline — Jenkins builds and pushes to DockerHub, updates K8s manifests, and ArgoCD syncs to a Kubernetes cluster on AWS EC2 with path-based filtering to solve the GitOps infinite loop problem.",
+    highlights: ["GitOps CI/CD (Jenkins + ArgoCD)", "Pydantic Batched LLM Generation", "Kubernetes on AWS EC2"],
+    tech: ["LangChain", "Groq", "Kubernetes", "Jenkins", "ArgoCD", "AWS"],
+    github: "https://github.com/Anand-Velpuri/Study-Buddy-AI",
+    video: "https://res.cloudinary.com/dzunpdnje/video/upload/v1782412634/StudyBuddyAI_ntn5ku.mp4"
+  },
+  {
+    title: "AI Travel Agent",
+    description: "A production-ready AI travel itinerary generator powered by LangChain, Groq, and Llama 3.3 70B. Beyond the AI core, the project demonstrates a complete cloud-native DevOps workflow — from containerization and Kubernetes orchestration to centralized logging with the ELK stack (Filebeat → Logstash → Elasticsearch → Kibana) and real-time monitoring via Kibana dashboards. Deployed on GCP with Minikube, featuring modular architecture, structured date-based rotating logs, and a Streamlit UI.",
+    highlights: ["ELK Stack Observability", "Kubernetes on GCP (Minikube)", "LangChain + Groq LLM Pipeline"],
+    tech: ["LangChain", "Groq", "Kubernetes", "Docker", "Elasticsearch", "GCP"],
+    github: "https://github.com/Anand-Velpuri/AI-TRAVEL-AGENT",
+    video: "https://res.cloudinary.com/dzunpdnje/video/upload/v1782411950/AI_Travel_Agent_z21gff.mp4"
+  },
+  {
     title: "AI Anime Recommender",
     description: "A production-grade AI-powered anime recommendation system built with a full LLMOps pipeline. Uses HuggingFace Embeddings (all-MiniLM-L6-v2) and ChromaDB for semantic vector search, LangChain RetrievalQA with custom prompt templates, and Groq API (Llama 3.1-8B-Instant) for lightning-fast inference. Containerized with Docker, deployed on GCP via Kubernetes (k8s), with GitHub CI/CD integration and Grafana Cloud for real-time monitoring and observability.",
     highlights: ["Kubernetes on GCP", "Grafana Cloud Monitoring", "ChromaDB Vector Search"],
